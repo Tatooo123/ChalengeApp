@@ -1,35 +1,16 @@
-﻿var name = "Jaromir";
-var age = 17;
-var isWoman = false;
+﻿int number = 982891;
+string numberAsString = number.ToString();
+char[] numbers = numberAsString.ToCharArray();
+int[] counters = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+// int val0;
+// val0 = Convert.ToInt32("0"); - why always returns 0, not 48
 
-if (isWoman && age < 30)
+foreach (char letter in numbers)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat");
+//    counters[Convert.ToInt32(letter) - 48]++;
+    counters[letter - '0']++;
 }
-else if (name == "Ewa" && age == 33)
+for (int iii = 0; iii < counters.Length; iii++)
 {
-    Console.WriteLine(name + ", lat " + age);
+    Console.WriteLine(iii+" => "+counters[iii]);
 }
-else if (!isWoman && age < 18)
-{
-    Console.WriteLine("Niepełnoletni Mężczyzna");
-}
-else if ((name == "Adam" || name == "Ewa") && age > 1000)
-{
-    Console.WriteLine("Prawdopodobnie mieszka w Raju");
-}
-else
-{
-    Console.WriteLine("Wystąpił wyjątek nieprzewidziany przez algorytm"); 
-}
-Console.WriteLine("============================================");
-Console.WriteLine("imię:    " + name);
-if (isWoman)
-{
-    Console.WriteLine("płeć:    kobieta");
-}
-else
-{
-    Console.WriteLine("płeć:    mężczyzna");
-}
-Console.WriteLine("wiek:    " + age);
