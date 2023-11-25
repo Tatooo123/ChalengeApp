@@ -1,30 +1,30 @@
-﻿var xName = "Jaromir";
-var xAge = 17;
-var xIsWoman = false;
+﻿var name = "Jaromir";
+var age = 17;
+var isWoman = false;
 
-if (xIsWoman && xAge < 30)
+if (isWoman && age < 30)
 {
     Console.WriteLine("Kobieta poniżej 30 lat");
 }
-else if (xName == "Ewa" && xAge == 33)
+else if (name == "Ewa" && age == 33)
 {
-    Console.WriteLine(xName + ", lat " + xAge);
+    Console.WriteLine(name + ", lat " + age);
 }
-else if (!xIsWoman && xAge < 18)
+else if (!isWoman && age < 18)
 {
     Console.WriteLine("Niepełnoletni Mężczyzna");
 }
-else if ((xName == "Adam" || xName == "Ewa") && xAge > 1000)
+else if ((name == "Adam" || name == "Ewa") && age > 1000)
 {
     Console.WriteLine("Prawdopodobnie mieszka w Raju");
 }
 else
 {
-    Console.WriteLine("Wystąpił wyjątek nieprzewidziany przez algorytm!");
+    Console.WriteLine("Wystąpił wyjątek nieprzewidziany przez algorytm"); 
 }
 Console.WriteLine("============================================");
-Console.WriteLine("imię:    " + xName);
-if (xIsWoman)
+Console.WriteLine("imię:    " + name);
+if (isWoman)
 {
     Console.WriteLine("płeć:    kobieta");
 }
@@ -32,4 +32,4 @@ else
 {
     Console.WriteLine("płeć:    mężczyzna");
 }
-Console.WriteLine("wiek:    " + xAge);
+Console.WriteLine("wiek:    " + age);
