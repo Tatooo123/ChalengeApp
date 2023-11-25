@@ -10,7 +10,7 @@ foreach (char letter in numbers)
 //    counters[Convert.ToInt32(letter) - 48]++;
     counters[letter - '0']++;
 }
-for (int iii = 0; iii < counters.Length; iii++)
+for (int i = 0; i < counters.Length; i++)
 {
-    Console.WriteLine(iii+" => "+counters[iii]);
+    Console.WriteLine(i+" => "+counters[i]);
 }
