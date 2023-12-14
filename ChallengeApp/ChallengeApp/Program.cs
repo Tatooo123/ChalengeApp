@@ -5,6 +5,7 @@ Employee worker2 = new Employee("Susie", "Jones", 29);
 Employee worker3 = new Employee("Mark", "Kowalski", 39);
 Employee worker4 = new Employee("Dorothy", "Longbutton", 41);
 int maxScore = -1;
+int maxScoreWorkerIndex = -1;
 Employee maxScoreWorker = null;
 List<Employee> workers = new List<Employee>()
 { 
@@ -43,5 +44,19 @@ foreach (var worker in workers)
         maxScoreWorker = worker;
     }
 }
-
+Console.WriteLine("Max score worker is:");
 Console.WriteLine(maxScoreWorker.FirstName + " " + maxScoreWorker.LastName + " age " + maxScoreWorker.Age + " score: " + maxScore);
+
+maxScore = -1;
+maxScoreWorkerIndex = -1;
+
+for (int i = 0; i < workers.Count; i++)
+{
+    if (workers[i].Result > maxScore)
+    {
+        maxScore = workers[i].Result;
+        maxScoreWorkerIndex = i;
+    }
+}
+Console.WriteLine("Max score worker (by Index) is:");
+Console.WriteLine(workers[maxScoreWorkerIndex].FirstName + " " + workers[maxScoreWorkerIndex].LastName + " age " + workers[maxScoreWorkerIndex].Age + " score: " + maxScore);
