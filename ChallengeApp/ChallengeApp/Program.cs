@@ -1,16 +1,21 @@
 ﻿using ChallengeApp;
 
+Employee worker0 = new Employee("Dorothy", "Longbutton", 41);
 Employee worker1 = new Employee("Tom", "Jones", 24);
 Employee worker2 = new Employee("Susie", "Jones", 29);
 Employee worker3 = new Employee("Mark", "Kowalski", 39);
-Employee worker4 = new Employee("Dorothy", "Longbutton", 41);
 int maxScore = -1;
 int maxScoreWorkerIndex = -1;
-Employee maxScoreWorker = null;
+// Employee maxScoreWorker = null;
 List<Employee> workers = new List<Employee>()
-{ 
-    worker1, worker2, worker3, worker4 
+{
+    worker0, worker1, worker2, worker3 
 };
+worker0.AddPoints(1);
+worker0.AddPoints(4);
+worker0.AddPoints(10);
+worker0.AddPoints(3);
+worker0.AddPoints(6);
 
 worker1.AddPoints(10);
 worker1.AddPoints(7);
@@ -22,41 +27,24 @@ worker2.AddPoints(1);
 worker2.AddPoints(8);
 worker2.AddPoints(5);
 worker2.AddPoints(3);
-worker2.AddPoints(9);
+worker2.AddPoints(-9);
 
 worker3.AddPoints(3);
 worker3.AddPoints(6);
 worker3.AddPoints(1);
 worker3.AddPoints(9);
 worker3.AddPoints(7);
-
-worker4.AddPoints(1);
-worker4.AddPoints(4);
-worker4.AddPoints(10);
-worker4.AddPoints(3);
-worker4.AddPoints(6);
-
+int ii = 0;
 foreach (var worker in workers)
 {
     if ( worker.Result > maxScore )
     { 
         maxScore = worker.Result;
-        maxScoreWorker = worker;
+        maxScoreWorkerIndex = ii;
     }
+    Console.WriteLine(ii.ToString().PadLeft(3, ' ') + " - " + workers[ii].FirstName.PadRight(8, ' ') + " " + workers[ii].LastName.PadRight(12, ' ') + " age " + workers[ii].Age.ToString().PadLeft(3, ' ') + " score: " + workers[ii].Result.ToString().PadLeft(3, ' '));
+    ii++;
 }
+Console.WriteLine("------------------");
 Console.WriteLine("Max score worker is:");
-Console.WriteLine(maxScoreWorker.FirstName + " " + maxScoreWorker.LastName + " age " + maxScoreWorker.Age + " score: " + maxScore);
-
-maxScore = -1;
-maxScoreWorkerIndex = -1;
-
-for (int i = 0; i < workers.Count; i++)
-{
-    if (workers[i].Result > maxScore)
-    {
-        maxScore = workers[i].Result;
-        maxScoreWorkerIndex = i;
-    }
-}
-Console.WriteLine("Max score worker (by Index) is:");
-Console.WriteLine(workers[maxScoreWorkerIndex].FirstName + " " + workers[maxScoreWorkerIndex].LastName + " age " + workers[maxScoreWorkerIndex].Age + " score: " + maxScore);
+Console.WriteLine(maxScoreWorkerIndex.ToString().PadLeft(3, ' ') + " - " + workers[maxScoreWorkerIndex].FirstName.PadRight(8, ' ') + " " + workers[maxScoreWorkerIndex].LastName.PadRight(12, ' ') + " age " + workers[maxScoreWorkerIndex].Age.ToString().PadLeft(3, ' ') + " score: " + maxScore.ToString().PadLeft(3, ' '));
