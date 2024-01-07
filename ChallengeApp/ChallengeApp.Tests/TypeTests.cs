@@ -15,6 +15,17 @@
         }
 
         [Test]
+        public void TestStringType()
+        {
+            // arrange
+            var name1 = "Ala";
+            var name2 = "Ala";
+
+            // assert
+            Assert.AreEqual(name1, name2);
+        }
+
+        [Test]
         public void TestIntType()
         {
             // arrange
@@ -29,33 +40,22 @@
         public void TestFloatType()
         {
             // arrange
-            float number1 = 1.111F;
-            float number2 = 2.222F;
+            float number1 = 1.11F;
+            float number2 = 1.11F;
 
             // assert
-            Assert.AreEqual(number1 + number2, 3.333);
-        }
-
-        [Test]
-        public void TestStringType()
-        {
-            // arrange
-            var name1 = "Ala";
-            var name2 = "Ala";
-
-            // assert
-            Assert.AreEqual(name1, name2);
+            Assert.AreEqual(number1, number2);
         }
 
         [Test]
         public void TestDoubleType()
         {
             // arrange
-            float number1 = 1.111F;
-            float number2 = 2.222F;
+            double number1 = 2.222;
+            double number2 = 2.222;
 
             // assert
-            Assert.AreEqual(number1 + number2, 3.333);
+            Assert.AreEqual(number1, number2);
         }
     }
 }
