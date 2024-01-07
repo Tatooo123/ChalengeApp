@@ -4,16 +4,16 @@ Employee worker0 = new Employee("Dorothy", "Longbutton", 41);
 Employee worker1 = new Employee("Tom", "Jones", 24);
 Employee worker2 = new Employee("Susie", "Jones", 29);
 Employee worker3 = new Employee("Mark", "Kowalski", 39);
-int maxScore = -1;
+float maxScore = -1;
 int maxScoreWorkerIndex = -1;
 // Employee maxScoreWorker = null;
 List<Employee> workers = new List<Employee>()
 {
     worker0, worker1, worker2, worker3 
 };
-worker0.AddPoints(1);
-worker0.AddPoints(4);
-worker0.AddPoints(10);
+worker0.AddPoints(1.5F);
+worker0.AddPoints(4.5F);
+worker0.AddPoints(10.5F);
 worker0.AddPoints(3);
 worker0.AddPoints(6);
 
@@ -34,10 +34,11 @@ worker3.AddPoints(6);
 worker3.AddPoints(1);
 worker3.AddPoints(9);
 worker3.AddPoints(7);
+
 int ii = 0;
 foreach (var worker in workers)
 {
-    if ( worker.Result > maxScore )
+    if (worker.Result > maxScore)
     { 
         maxScore = worker.Result;
         maxScoreWorkerIndex = ii;
