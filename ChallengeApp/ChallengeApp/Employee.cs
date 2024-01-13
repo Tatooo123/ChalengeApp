@@ -18,6 +18,11 @@ public class Employee
         this.points.Add(score);
     }
 
+    public List<float> GetPointList()
+    {
+        return this.points;
+    }
+
     public float Result
     {
         get
@@ -25,12 +30,13 @@ public class Employee
             return this.points.Sum(); 
         }
     }
-        public Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-            statistics.Minimum = points.Min();
-            statistics.Maximum = points.Max();
-            statistics.Average = points.Average();
-            return statistics;
-        }
+
+    public Statistics GetStatistics()
+    {
+        var statistics = new Statistics();
+        statistics.Minimum = points.Min();
+        statistics.Maximum = points.Max();
+        statistics.Average = points.Average();
+        return statistics;
+    }
 }
