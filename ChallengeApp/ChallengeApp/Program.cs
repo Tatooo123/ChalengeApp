@@ -16,9 +16,9 @@ List<Employee> workers = new List<Employee>()
 {
     worker0, worker1, worker2, worker3 
 };
-worker0.AddPoints(1);
-worker0.AddPoints(4);
-worker0.AddPoints(10);
+worker0.AddPoints(1.5F);
+worker0.AddPoints(4.5F);
+worker0.AddPoints(10.5F);
 worker0.AddPoints(3);
 worker0.AddPoints(6);
 
