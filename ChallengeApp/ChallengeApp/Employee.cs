@@ -1,8 +1,7 @@
 ﻿namespace ChallengeApp;
-
 public class Employee
 {
-    public Employee(string firstName, string lastName, int age) 
+    public Employee(string firstName, string lastName, int age)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -14,7 +13,7 @@ public class Employee
     private List<float> points = new List<float>();
 
     public void AddPoints(float score)
-    { 
+    {
         this.points.Add(score);
     }
 
@@ -26,11 +25,10 @@ public class Employee
     public float Result
     {
         get
-        { 
-            return this.points.Sum(); 
+        {
+            return this.points.Sum();
         }
     }
-
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();

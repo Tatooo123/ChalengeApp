@@ -33,7 +33,7 @@
             int number2 = 2;
 
             // assert
-            Assert.AreEqual(number1+number2, 3);
+            Assert.AreEqual(number1 + number2, 3);
         }
 
         [Test]
