@@ -14,12 +14,30 @@ public class Employee
 
     public void AddPoints(float score)
     {
-        this.points.Add(score);
+        if (score >= -100 && score <= 100)
+            this.points.Add(score);
+        else
+            Console.WriteLine("     *** WARNING ***   score " + '"' + score + '"' + " is out of acceptable range (-100 - 100)");
     }
 
-    public List<float> GetPointList()
+    public void AddPoints(int score)
     {
-        return this.points;
+        this.AddPoints((float)score);
+    }
+
+    public void AddPoints(double score)
+    {
+        if (score < float.MaxValue && score >= float.MinValue)
+            this.points.Add((float)Math.Round(score));
+        else
+            Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is out of range");
+    }
+
+    public void AddPoints(string score)
+    {
+        if (float.TryParse(score, out float result))
+            this.AddPoints((float)result);
+        else Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is not proper score");
     }
 
     public float Result
@@ -29,6 +47,7 @@ public class Employee
             return this.points.Sum();
         }
     }
+
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();
@@ -36,5 +55,10 @@ public class Employee
         statistics.Maximum = points.Max();
         statistics.Average = points.Average();
         return statistics;
+    }
+
+    public List<float> GetPointList()
+    {
+        return this.points;
     }
 }
