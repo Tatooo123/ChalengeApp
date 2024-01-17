@@ -22,16 +22,42 @@ Console.WriteLine("  - AddPoints(" + '"' + "ola" + '"' + ") ");
 worker0.AddPoints("ola");
 
 Console.WriteLine("------------------");
-Console.WriteLine("Worker sumary:");
-Console.WriteLine(" - " + " score: " + worker0.Result.ToString().PadLeft(3, ' '));
+Console.WriteLine("Worker summary:");
+Console.WriteLine(" - score: " + worker0.Result.ToString().PadLeft(3, ' '));
 
 var statistics = worker0.GetStatistics();
-Console.WriteLine(" - and statistics:");
-Console.WriteLine($"    Min:     {statistics.Minimum:N2}");
-Console.WriteLine($"    Max:     {statistics.Maximum:N2}");
-Console.WriteLine($"    Average: {statistics.Average:N2}");
+Console.WriteLine(" - statistics:            Min         Max       Average");
+Console.Write("    - with Math:    ");
+Console.Write(    $"       {statistics.Minimum:N2}");
+Console.Write(    $"       {statistics.Maximum:N2}");
+Console.WriteLine($"       {statistics.Average:N2}");
 
-Console.WriteLine(" - and his punctation:");
+statistics = worker0.GetStatisticsWithForEach();
+Console.Write("    - WithForEach:  ");
+Console.Write(    $"       {statistics.Minimum:N2}");
+Console.Write(    $"       {statistics.Maximum:N2}");
+Console.WriteLine($"       {statistics.Average:N2}");
+
+statistics = worker0.GetStatisticsWithFor();
+Console.Write("    - WithFor:      ");
+Console.Write(    $"       {statistics.Minimum:N2}");
+Console.Write(    $"       {statistics.Maximum:N2}");
+Console.WriteLine($"       {statistics.Average:N2}");
+
+statistics = worker0.GetStatisticsWithDoWhile();
+Console.Write("    - WithDoWhile:  ");
+Console.Write(    $"       {statistics.Minimum:N2}");
+Console.Write(    $"       {statistics.Maximum:N2}");
+Console.WriteLine($"       {statistics.Average:N2}");
+
+statistics = worker0.GetStatisticsWithWhile();
+Console.Write("    - WithWhile:    ");
+Console.Write(    $"       {statistics.Minimum:N2}");
+Console.Write(    $"       {statistics.Maximum:N2}");
+Console.WriteLine($"       {statistics.Average:N2}");
+
+Console.WriteLine("");
+Console.WriteLine(" - all accepted punctation:");
 List<float> points = worker0.GetPointList();
 
 foreach (var score in points)
