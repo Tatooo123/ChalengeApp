@@ -40,9 +40,41 @@ public class Employee
             Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is out of range");
     }
 
+    public void AddPoints(char score)
+    {
+        switch (score)
+        {
+            case 'A':
+            case 'a':
+                this.AddPoints(100);
+                break;
+            case 'B':
+            case 'b':
+                this.AddPoints(80);
+                break;
+            case 'C':
+            case 'c':
+                this.AddPoints(60);
+                break;
+            case 'D':
+            case 'd':
+                this.AddPoints(40);
+                break;
+            case 'E':
+            case 'e':
+                this.AddPoints(20);
+                break;
+            default:
+                this.AddPoints(0);
+                break;
+        }
+    }
+
     public void AddPoints(string score)
     {
-        if (float.TryParse(score, out float result))
+        if (score.Length == 1)          
+            this.AddPoints(score[0]);
+        else if (float.TryParse(score, out float result))
             this.AddPoints((float)result);
         else Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is not proper score");
     }
@@ -53,61 +85,24 @@ public class Employee
         statistics.Minimum = points.Min();
         statistics.Maximum = points.Max();
         statistics.Average = points.Average();
-        return statistics;
-    }
-
-    public Statistics GetStatisticsWithForEach()
-    {
-        var statistics = new Statistics();
-        foreach (var point in points)
+        switch (statistics.Average)
         {
-            statistics.CalculateStep(point);
+            case var average when average >= 80:
+                statistics.AverageLetter = 'A';
+                break;
+            case var average when average >= 60:
+                statistics.AverageLetter = 'B';
+                break;
+            case var average when average >= 40:
+                statistics.AverageLetter = 'C';
+                break;
+            case var average when average >= 20:
+                statistics.AverageLetter = 'D';
+                break;
+            default:
+                statistics.AverageLetter = 'E';
+                break;
         }
-        statistics.Average /= points.Count();
-        return statistics;
-    }
-
-    public Statistics GetStatisticsWithFor()
-    {
-        var statistics = new Statistics();
-        for (int ii = 0; ii < points.Count; ii++)
-        {
-            statistics.CalculateStep(points[ii]);
-        }
-        statistics.Average /= points.Count();
-        return statistics;
-    }
-
-    public Statistics GetStatisticsWithDoWhile()
-    {
-        var statistics = new Statistics();
-        int ii = 0;
-        do
-        {
-            statistics.CalculateStep(points[ii]);
-            ii++;
-        }
-        while (ii < points.Count);
-        statistics.Average /= points.Count();
-        return statistics;
-    }
-
-    public Statistics GetStatisticsWithWhile()
-    {
-        var statistics = new Statistics();
-        //statistics.Minimum = float.MaxValue;
-        //statistics.Maximum = float.MinValue;
-        //statistics.Average = 0;
-        int ii = 0;
-        while(ii < points.Count)
-        {
-            //if (point < statistics.Minimum) statistics.Minimum = point;
-            //if (point > statistics.Maximum) statistics.Maximum = point;
-            //statistics.Average += point;
-            statistics.CalculateStep(points[ii]);
-            ii++;
-        }
-        statistics.Average /= points.Count();
         return statistics;
     }
 
