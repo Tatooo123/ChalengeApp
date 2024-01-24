@@ -9,22 +9,17 @@ namespace ChallengeApp.Tests
             var worker = new Employee("Mark", "Twain", 99);
 
             // act & assert
-            worker.AddPoints(11);
-            worker.AddPoints(12);
-            worker.AddPoints(13);
-            Assert.AreEqual(worker.Result, 36);
+            worker.AddPoints("A");
+            worker.AddPoints(30.5F);
+            worker.AddPoints("50");
+            worker.AddPoints("-a");
+            Assert.AreEqual(worker.Result, 180.5F);
             
-            worker.AddPoints(-3);
-            Assert.AreEqual(worker.Result, 33);
+            worker.AddPoints("-30");
+            Assert.AreEqual(worker.Result, 150.5F);
 
-            worker.AddPoints(10);
-            Assert.AreEqual(worker.Result, 43);
-
-            worker.AddPoints(-10);
-            Assert.AreEqual(worker.Result, 33);
-
-            worker.AddPoints(-40);
-            Assert.AreEqual(worker.Result, -7);
+            worker.AddPoints('e');
+            Assert.AreEqual(worker.Result, 170.5F);
         }
     }
 }
