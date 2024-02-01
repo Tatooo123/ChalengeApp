@@ -2,8 +2,6 @@
 
 Console.WriteLine("Hello in Employee Score application");
 Console.WriteLine("-----------------------------------");
-//Console.WriteLine("Program started   ");
-//Console.WriteLine("------------------");
 
 Employee worker0 = new Employee("Mark", "Twain", 44);
 string input;
@@ -15,12 +13,16 @@ while (true)
 {
     Console.WriteLine("Write worker score, type 'Q' to exit:");
     input = Console.ReadLine();
-    // if (input.Equals("q", StringComparison.OrdinalIgnoreCase))
-    // if (input.ToUpper() == "Q")
     if (input == "Q" || input == "q")
         break;
-    else
+    try
+    {
         worker0.AddPoints(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception occured: {e.Message}");
+    }
 }
 
 Console.WriteLine("------------------");

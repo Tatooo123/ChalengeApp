@@ -24,7 +24,7 @@ public class Employee
         if (score >= -100 && score <= 100)
             this.points.Add(score);
         else
-            Console.WriteLine("     *** WARNING ***   score " + '"' + score + '"' + " is out of acceptable range (-100 - 100)");
+            throw new Exception("score " + '"' + score + '"' + " is out of range (-100 - 100)");
     }
 
     public void AddPoints(int score)
@@ -37,7 +37,7 @@ public class Employee
         if (score < float.MaxValue && score >= float.MinValue)
             this.AddPoints((float)Math.Round(score));
         else
-            Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is out of range");
+            throw new Exception("score " + '"' + score + '"' + " is out of range");
     }
 
     public void AddPoints(char score)
@@ -76,7 +76,8 @@ public class Employee
             this.AddPoints(score[0]);
         else if (float.TryParse(score, out float result))
             this.AddPoints((float)result);
-        else Console.WriteLine("     *** WARNING ***   " + '"' + score + '"' + " is not proper score");
+        else
+            throw new Exception("score " + '"' + score + '"' + " is not proper score");
     }
 
     public Statistics GetStatistics()
