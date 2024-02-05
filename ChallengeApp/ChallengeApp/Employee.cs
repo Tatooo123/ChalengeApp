@@ -1,15 +1,11 @@
 ﻿namespace ChallengeApp;
-public class Employee
+public class Employee : Person
 {
-    public Employee(string firstName, string lastName, int age)
+    public Employee(string firstName, string lastName, char gender, int age)
+        : base(firstName, lastName, gender, age)
     {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Age = age;
     }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public int Age { get; set; }
+
     public float Result
     {
         get
