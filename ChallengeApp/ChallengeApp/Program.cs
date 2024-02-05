@@ -1,9 +1,9 @@
 ﻿using ChallengeApp;
 
-Console.WriteLine("Hello in Employee Score application");
+Console.WriteLine("Hello in Employee Score application 1.0b");
 Console.WriteLine("-----------------------------------");
 
-Employee worker0 = new Employee("Mark", "Twain", 44);
+Employee worker0 = new Employee("Mark", "Twain", 'm', 44);
 string input;
 
 Console.WriteLine("Worker:");

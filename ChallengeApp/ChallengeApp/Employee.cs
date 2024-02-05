@@ -1,15 +1,64 @@
 ﻿namespace ChallengeApp;
-public class Employee
+public class Employee : IEmployee
 {
-    public Employee(string firstName, string lastName, int age)
+    public Employee(string firstName, string lastName, char gender, int age)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
+        this.Gender = gender;
         this.Age = age;
     }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public int Age { get; set; }
+
+    public string FirstName
+    {
+        get
+        {
+            return this.FirstName;
+        }
+        set
+        {
+            this.FirstName = value;
+        }
+    }
+
+    public string LastName
+    {
+        get
+        {
+            return this.LastName;
+        }
+        set
+        {
+            this.LastName = value;
+        }
+    }
+
+    public char Gender
+    {
+        get
+        {
+            return this.Gender;
+        }
+        set
+        {
+            this.Gender = value;
+        }
+    }
+
+    public int Age
+    {
+        get
+        {
+            return this.Age;
+        }
+        set
+        {
+            this.Age = value;
+        }
+    }
+
+    private List<float> points = new List<float>();
+
     public float Result
     {
         get
@@ -17,7 +66,6 @@ public class Employee
             return this.points.Sum();
         }
     }
-    private List<float> points = new List<float>();
 
     public void AddPoints(float score)
     {
