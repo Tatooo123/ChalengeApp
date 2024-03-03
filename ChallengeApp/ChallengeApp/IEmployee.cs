@@ -12,7 +12,7 @@
         void AddPoints(double score);
         void AddPoints(char score);
         void AddPoints(string score);
-        
+
         Statistics GetStatistics();
 
         public List<float> GetPointList();

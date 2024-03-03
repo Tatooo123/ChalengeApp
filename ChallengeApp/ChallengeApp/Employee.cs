@@ -1,23 +1,29 @@
-﻿namespace ChallengeApp;
+﻿using static System.Formats.Asn1.AsnWriter;
+
+namespace ChallengeApp;
 public class Employee : IEmployee
 {
     public Employee(string firstName, string lastName, char gender, int age)
     {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Gender = gender;
-        this.Age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
     }
+    private string firstName;
+    private string lastName;
+    private char gender;
+    private int age;
 
     public string FirstName
     {
         get
         {
-            return this.FirstName;
+            return this.firstName;
         }
         set
         {
-            this.FirstName = value;
+            this.firstName = value;
         }
     }
 
@@ -25,11 +31,11 @@ public class Employee : IEmployee
     {
         get
         {
-            return this.LastName;
+            return this.lastName;
         }
         set
         {
-            this.LastName = value;
+            this.lastName = value;
         }
     }
 
@@ -37,11 +43,11 @@ public class Employee : IEmployee
     {
         get
         {
-            return this.Gender;
+            return this.gender;
         }
         set
         {
-            this.Gender = value;
+            this.gender = value;
         }
     }
 
@@ -49,11 +55,11 @@ public class Employee : IEmployee
     {
         get
         {
-            return this.Age;
+            return this.age;
         }
         set
         {
-            this.Age = value;
+            this.age = value;
         }
     }
 
@@ -119,6 +125,7 @@ public class Employee : IEmployee
     }
 
     public void AddPoints(string score)
+//    public virtual void AddPoints(string score)
     {
         if (score.Length == 1)          
             this.AddPoints(score[0]);
@@ -131,6 +138,8 @@ public class Employee : IEmployee
     public Statistics GetStatistics()
     {
         var statistics = new Statistics();
+        if (this.points.Count() == 0)
+            throw new Exception("statistics are not available when points list is empty");
         statistics.Minimum = points.Min();
         statistics.Maximum = points.Max();
         statistics.Average = points.Average();
