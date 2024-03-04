@@ -5,10 +5,10 @@ public class Employee : IEmployee
 {
     public Employee(string firstName, string lastName, char gender, int age)
     {
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Gender = gender;
-        this.Age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
     }
     //private string firstName;
     //private string lastName;
