@@ -10,22 +10,8 @@ public class Employee : IEmployee
         this.Gender = gender;
         this.Age = age;
     }
-    //private string firstName;
-    //private string lastName;
-    //private char gender;
-    //private int age;
 
     public string FirstName { get; set; }
-    //{
-    //    get
-    //    {
-    //        return this.FirstName;
-    //    }
-    //    set
-    //    {
-    //        this.FirstName = value;
-    //    }
-    //}
 
     public string LastName { get; set; }
 
