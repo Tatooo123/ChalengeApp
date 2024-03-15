@@ -18,23 +18,7 @@
 
         public int Age { get; set; }
 
-        protected List<float> points = new List<float>();
-
-        public float Result
-        {
-            get
-            {
-                return this.points.Sum();
-            }
-        }
-
-        virtual public void AddPoints(float score)
-        {
-            if (score >= -100 && score <= 100)
-                this.points.Add(score);
-            else
-                throw new Exception("score " + '"' + score + '"' + " is out of range (-100 - 100)");
-        }
+        abstract public void AddPoints(float score);
 
         public void AddPoints(int score)
         {
@@ -80,7 +64,6 @@
         }
 
         public void AddPoints(string score)
-        // virtual public void AddPoints(string score)
         {
             if (score.Length == 1)
                 this.AddPoints(score[0]);
@@ -90,39 +73,8 @@
                 throw new Exception("score " + '"' + score + '"' + " is not proper score");
         }
 
-        virtual public Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-            if (this.points.Count() == 0)
-                throw new Exception("statistics are not available when points list is empty");
-            statistics.Minimum = points.Min();
-            statistics.Maximum = points.Max();
-            statistics.Average = points.Average();
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
-            return statistics;
-        }
+        abstract public Statistics GetStatistics();
 
-        public List<float> GetPointList()
-        {
-            return this.points;
-        }
-
+        abstract public List<float> GetPointList();
     }
 }

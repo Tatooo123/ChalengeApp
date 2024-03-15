@@ -1,4 +1,5 @@
-﻿namespace ChallengeApp
+﻿
+namespace ChallengeApp
 {
     public class Supervisor : EmployeeBase  // for the future maybe
     {
@@ -28,13 +29,27 @@
             if ( scoreTmp.Length == 1 && "123456".Contains(scoreTmp[0]) 
                                       && int.TryParse(scoreTmp, out grade) )
             {
-//                points = (grade - 1) * 20 + gradeHalf;
                 this.AddPoints((grade - 1) * 20 + gradeHalf);
             }
             else
             {
                 throw new Exception("score " + '"' + score + '"' + " is not proper score");
             }
+        }
+
+        public override void AddPoints(float score)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<float> GetPointList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
         }
     }
 }

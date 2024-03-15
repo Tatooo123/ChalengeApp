@@ -26,6 +26,8 @@ namespace ChallengeApp
 
         public override Statistics GetStatistics()
         {
+            EmployeeInMemory workerMem = new EmployeeInMemory("", "", ' ', 0);
+
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -33,10 +35,28 @@ namespace ChallengeApp
                     var line = reader.ReadLine();
                     while (line != null) 
                     {
-                        //base.AddPoints(line);
+                        workerMem.AddPoints(line);
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            return workerMem.GetStatistics();
+        }
+
+        public override List<float> GetPointList()
+        {
+            List<float> points = new List<float>();
+
+            if (File.Exists(fileName))
+            {
+                using (var reader = File.OpenText(fileName))
+                {
+                    var line = reader.ReadLine();
+                    while (line != null)
+                    {
                         if (float.TryParse(line, out float result) && result >= -100 && result <= 100)
                         {
-                            this.points.Add(result);
+                            points.Add(result);
                         }
                         else
                             throw new Exception("score " + '"' + line + '"' + " is not proper score");
@@ -44,7 +64,7 @@ namespace ChallengeApp
                     }
                 }
             }
-            return base.GetStatistics();
+            return points;
         }
     }
 }
