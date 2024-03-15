@@ -15,6 +15,6 @@
 
         Statistics GetStatistics();
 
-        public List<float> GetPointList();
+        protected List<float> GetPointList();
     }
 }

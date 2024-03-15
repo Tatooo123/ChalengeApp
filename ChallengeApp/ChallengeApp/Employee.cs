@@ -11,7 +11,7 @@ public class Employee : IEmployee
         this.Age = age;
     }
 
-    public string FirstName { get; set; }
+    public string FirstName { get; private set; }
 
     public string LastName { get; set; }
 
