@@ -9,8 +9,8 @@ char workerType = 'N';
 List<float> points;
 Statistics statistics;
 
-EmployeeInMemory workerMem = new EmployeeInMemory("Mark", "Twain", 'M', 44);
-EmployeeInFile workerFil = new EmployeeInFile("Ana", "Kwitowa", 'W', 24);
+EmployeeInMemory workerInMemory = new EmployeeInMemory("Mark", "Twain", 'M', 44);
+EmployeeInFile workerInFile = new EmployeeInFile("Ana", "Kwitowa", 'W', 24);
 EmployeeInMemory worker3 = new EmployeeInMemory("", "", ' ', 0);
 
 
@@ -26,13 +26,13 @@ while (true)
         {
             workerType = 'M';
             Console.WriteLine("Worker in Memory");
-            Console.WriteLine(" " + workerMem.FirstName.PadRight(8, ' ') + " " + workerMem.LastName.PadRight(12, ' ') + " gender " + workerMem.Gender + " age " + workerMem.Age.ToString().PadLeft(3, ' '));
+            Console.WriteLine(" " + workerInMemory.FirstName.PadRight(8, ' ') + " " + workerInMemory.LastName.PadRight(12, ' ') + " gender " + workerInMemory.Gender + " age " + workerInMemory.Age.ToString().PadLeft(3, ' '));
         }
         else if (input == "F")
         {
             workerType = 'F';
             Console.WriteLine("Worker in File");
-            Console.WriteLine(" " + workerFil.FirstName.PadRight(8, ' ') + " " + workerFil.LastName.PadRight(12, ' ') + " gender " + workerFil.Gender + " age " + workerFil.Age.ToString().PadLeft(3, ' '));
+            Console.WriteLine(" " + workerInFile.FirstName.PadRight(8, ' ') + " " + workerInFile.LastName.PadRight(12, ' ') + " gender " + workerInFile.Gender + " age " + workerInFile.Age.ToString().PadLeft(3, ' '));
         }
         else if (input == "Q")
             break;
@@ -52,11 +52,11 @@ while (true)
                 Console.WriteLine("Worker summary:");
                 if (workerType == 'M')
                 {
-                    statistics = workerMem.GetStatistics();
+                    statistics = workerInMemory.GetStatistics();
                 }
                 else
                 {
-                    statistics = workerFil.GetStatistics();
+                    statistics = workerInFile.GetStatistics();
                 }
                 Console.WriteLine(" - score: " + statistics.Result.ToString().PadLeft(3, ' '));
                 Console.WriteLine(" - statistics:            Min         Max       Average      AvLetter");
@@ -79,9 +79,9 @@ while (true)
             else
             {
                 if (workerType == 'M')
-                    workerMem.AddPoints(input);
+                    workerInMemory.AddPoints(input);
                 else if (workerType == 'F')
-                    workerFil.AddPoints(input);
+                    workerInFile.AddPoints(input);
                 else
                     throw new Exception("unexpected worker type");
             }

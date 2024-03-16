@@ -42,10 +42,10 @@ namespace ChallengeApp
             throw new NotImplementedException();
         }
 
-        public override List<float> GetPointList()
-        {
-            throw new NotImplementedException();
-        }
+        //public override List<float> GetPointList()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public override Statistics GetStatistics()
         {

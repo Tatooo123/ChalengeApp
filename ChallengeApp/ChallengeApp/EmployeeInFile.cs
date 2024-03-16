@@ -26,7 +26,8 @@ namespace ChallengeApp
 
         public override Statistics GetStatistics()
         {
-            EmployeeInMemory workerMem = new EmployeeInMemory("", "", ' ', 0);
+            var statistics = new Statistics();
+            statistics.points = new List<float>();
 
             if (File.Exists(fileName))
             {
@@ -35,36 +36,42 @@ namespace ChallengeApp
                     var line = reader.ReadLine();
                     while (line != null) 
                     {
-                        workerMem.AddPoints(line);
-                        line = reader.ReadLine();
-                    }
-                }
-            }
-            return workerMem.GetStatistics();
-        }
-
-        public override List<float> GetPointList()
-        {
-            List<float> points = new List<float>();
-
-            if (File.Exists(fileName))
-            {
-                using (var reader = File.OpenText(fileName))
-                {
-                    var line = reader.ReadLine();
-                    while (line != null)
-                    {
                         if (float.TryParse(line, out float result) && result >= -100 && result <= 100)
                         {
-                            points.Add(result);
+                            statistics.points.Add(result);
                         }
                         else
-                            throw new Exception("score " + '"' + line + '"' + " is not proper score");
+                            throw new Exception("score in file " + '"' + line + '"' + " is not proper score");
                         line = reader.ReadLine();
                     }
                 }
             }
-            return points;
+            if (statistics.points.Count() == 0)
+                throw new Exception("statistics are not available when points list is empty");
+            statistics.Minimum = statistics.points.Min();
+            statistics.Maximum = statistics.points.Max();
+            statistics.Average = statistics.points.Average();
+            statistics.Result = statistics.points.Sum();
+
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
+            return statistics;
         }
     }
 }

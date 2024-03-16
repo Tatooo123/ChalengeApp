@@ -57,10 +57,5 @@ namespace ChallengeApp
             }
             return statistics;
         }
-
-        override public List<float> GetPointList()
-        {
-            return this.points;
-        }
     }
 }

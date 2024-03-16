@@ -74,7 +74,5 @@
         }
 
         abstract public Statistics GetStatistics();
-
-        abstract public List<float> GetPointList();
     }
 }

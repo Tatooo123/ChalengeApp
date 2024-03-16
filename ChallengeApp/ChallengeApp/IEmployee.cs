@@ -14,7 +14,5 @@
         void AddPoints(string score);
 
         Statistics GetStatistics();
-
-        protected List<float> GetPointList();
     }
 }
