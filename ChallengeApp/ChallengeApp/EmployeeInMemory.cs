@@ -27,7 +27,7 @@ namespace ChallengeApp
                 throw new Exception("score " + '"' + score + '"' + " is out of range (-100 - 100)");
         }
 
-        override public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             if (this.points.Count() == 0)
